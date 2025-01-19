@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TrainingStudioMVC.DataAccess;
 using TrainingStudioMVC.Models;
 using TrainingStudioMVC.ViewModels.Specialization;
@@ -13,7 +14,7 @@ namespace TrainingStudioMVC.Areas.Admin.Controllers
         // GET: SpecializationController
         public async Task<ActionResult> Index()
         {
-            return View();
+            return View(await _context.Specializations.ToListAsync());
         }
 
         // GET: SpecializationController/Create
@@ -38,45 +39,41 @@ namespace TrainingStudioMVC.Areas.Admin.Controllers
         }
 
         // GET: SpecializationController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Update(int? id)
         {
-            return View();
+            if (id is null) return BadRequest();
+            var data =await _context.Specializations.Where(x=>x.Id == id).Select(x => new SpecializationUpdateVM
+            {
+                Name=x.Name,
+            }).FirstOrDefaultAsync();
+            if(data is null) return NotFound();
+            return View(data);
         }
 
         // POST: SpecializationController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Update(int? id, SpecializationUpdateVM vm)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            if (id is null) return BadRequest();
+            var data = await _context.Specializations.FindAsync( id);
+            if (data is null) return NotFound();
+            if(!ModelState.IsValid) return View(vm);
+            data.Name = vm.Name;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: SpecializationController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int? id)
         {
-            return View();
+            if(!id.HasValue) return BadRequest();
+            var data = await _context.Specializations.FindAsync(id);
+            if(data is null) return NotFound();
+            _context.Specializations.Remove(data);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        // POST: SpecializationController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }

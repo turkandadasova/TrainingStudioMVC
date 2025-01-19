@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrainingStudioMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+157b3368ddddcb5df1068aac47c341ec42ac40a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d504288e363c8e12a4391144ccf529dfa833f91d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrainingStudioMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrainingStudioMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

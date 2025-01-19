@@ -1,18 +1,18 @@
-﻿@model List<SpecializationItemVM>
+﻿@model List<Specialization>
 @{
     ViewData["Title"] = "Index";
 }
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Specialization List</h6>
+        @* <h6 class="m-0 font-weight-bold text-primary">Specialization List</h6> *@
         <a asp-action="Create" asp-controller="Specialization" class="btn btn-outline-primary ml-auto">Create</a>
     </div>
     <div class="card-body">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Specialization List</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -30,7 +30,12 @@
                                 
                             <tr>
                                 <td>@item.Name</td>
-                                
+                                    <td> 
+                                        <a asp-action="Update" asp-controller="Specialization" asp-route-id="@item.Id" class="btn btn-success">Update</a>
+                                        </td>
+                                    <td>
+                                        <a asp-action="Delete" asp-controller="Specialization" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                   </td>
                             </tr>
                             }
 
@@ -41,15 +46,7 @@
             </div>
         </div>
                     
-     @*         <!-- End of Main Content -->
-     @foreach (var item in Model??[])
-     {
-         <tr>
-             <th></th>
-             <th>@item.Name</th>
-
-         </tr>
-     } *@
+  
 
 
 </div>

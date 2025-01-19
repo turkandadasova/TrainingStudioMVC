@@ -7505,6 +7505,22 @@
       "PackagePath": "staticwebassets\\assets\\js\\waypoints.min.js"
     },
     {
+      "Id": "C:\\Users\\Furqan Service\\source\\repos\\TrainingStudioMVC\\TrainingStudioMVC\\wwwroot\\imgs\\trainers\\bdctgk25.4sh.webp",
+      "PackagePath": "staticwebassets\\imgs\\trainers\\bdctgk25.4sh.webp"
+    },
+    {
+      "Id": "C:\\Users\\Furqan Service\\source\\repos\\TrainingStudioMVC\\TrainingStudioMVC\\wwwroot\\imgs\\trainers\\nql1sui0.zqj.jpg",
+      "PackagePath": "staticwebassets\\imgs\\trainers\\nql1sui0.zqj.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Furqan Service\\source\\repos\\TrainingStudioMVC\\TrainingStudioMVC\\wwwroot\\imgs\\trainers\\p2rblnl3.5mg.webp",
+      "PackagePath": "staticwebassets\\imgs\\trainers\\p2rblnl3.5mg.webp"
+    },
+    {
+      "Id": "C:\\Users\\Furqan Service\\source\\repos\\TrainingStudioMVC\\TrainingStudioMVC\\wwwroot\\imgs\\trainers\\rok2ixek.ipz.jpg",
+      "PackagePath": "staticwebassets\\imgs\\trainers\\rok2ixek.ipz.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TrainingStudioMVC.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

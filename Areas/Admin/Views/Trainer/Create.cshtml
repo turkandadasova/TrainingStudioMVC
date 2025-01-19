@@ -1,0 +1,56 @@
+﻿@model TrainerCreateVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Create Trainer</h6>
+        <a asp-action="Index" asp-controller="Trainer" class="btn btn-outline-primary ml-auto">Return List</a>
+
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname"></label>
+                <input asp-for="Surname" class="form-control">
+                <span asp-validation-for="Surname" class="text-small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Details"></label>
+                <input asp-for="Details" class="form-control">
+                <span asp-validation-for="Details" class="text-small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="File"></label>
+                <input asp-for="File" class="form-control">
+                <span asp-validation-for="File" class="text-small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecializationId"></label>
+                <input asp-for="SpecializationId" class="form-control">
+               @*  @foreach (var item in ViewBag.Specializations)
+                {
+                    @if (item != null)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                    else
+                    {
+                        <option disabled>Invalid Specialization</option>
+                    }
+                } *@
+                <span asp-validation-for="SpecializationId" class="text-small text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+
+    </div>
+</div>
+

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using TrainingStudioMVC.ViewModels.Trainer;
+@model List<TrainerItemVM>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -334,20 +336,26 @@ https://templatemo.com/tm-548-training-studio
             <div class="row">
                 <div class="col-lg-4">
                     <div class="trainer-item">
+                           @foreach(var item in Model)
+                           {   
                         <div class="image-thumb">
-                            <img src="~/assets/images/first-trainer.jpg" alt="">
+                           <img src="@item.File" alt="">
                         </div>
                         <div class="down-content">
-                            <span>Strength Trainer</span>
-                            <h4>Bret D. Bowers</h4>
-                            <p>Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel.</p>
+                           
+                                
+                            <span>@item.SpecializationId</span>
+                            <h4>@item.Name</h4>
+                            <p>@item.Details</p>
                             <ul class="social-icons">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-behance"></i></a></li>
                             </ul>
+                           
                         </div>
+                        }
                     </div>
                 </div>
                 <div class="col-lg-4">

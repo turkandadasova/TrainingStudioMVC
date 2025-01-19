@@ -4,6 +4,7 @@ using System.Diagnostics;
 using TrainingStudioMVC.DataAccess;
 using TrainingStudioMVC.Models;
 using TrainingStudioMVC.ViewModels.Specialization;
+using TrainingStudioMVC.ViewModels.Trainer;
 
 namespace TrainingStudioMVC.Controllers
 {
@@ -13,9 +14,12 @@ namespace TrainingStudioMVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var datas = await _context.Specializations.Where(x=>!x.IsDeleted).Select(x=>new SpecializationItemVM
+            var datas = await _context.Trainers.Where(x=>!x.IsDeleted).Select(x=>new TrainerItemVM
             {
                 Name = x.Name,
+                Surname=x.Surname,
+                Details = x.Details,
+                SpecializationId = x.SpecializationId,
             }).ToListAsync();
             return View(datas);
         }

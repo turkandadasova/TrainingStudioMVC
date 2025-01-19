@@ -1,0 +1,63 @@
+﻿@model List<Trainer>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        @* <h6 class="m-0 font-weight-bold text-primary">Specialization List</h6> *@
+        <a asp-action="Create" asp-controller="Trainer" class="btn btn-outline-primary ml-auto">Create</a>
+    </div>
+    <div class="card-body">
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4" )">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Trainer List</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>CoverImage</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Details</th>
+                                <th>Specialization</th>
+                                <th>Actions</th>
+                                <th>  </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model ?? [])
+                            {
+                                <tr>
+                            <td><img src="~/imgs/trainers/@item.CoverImage" width="70" /></td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Surname</td>
+                                    <td>@item.Details</td>
+                                    <td>@item.SpecializationId</td>
+
+                                    
+
+                                    <td>
+                                        <a asp-action="Update" asp-controller="Trainer" asp-route-id="@item.Id" class="btn btn-success">Update</a>
+                                    </td>
+                                    <td>
+                                        <a asp-action="Delete" asp-controller="Trainer" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
